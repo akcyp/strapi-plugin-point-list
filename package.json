@@ -1,0 +1,28 @@
+{
+  "name": "strapi-plugin-point-list",
+  "version": "0.0.1",
+  "description": "Point list field for strapi",
+  "strapi": {
+    "name": "Point List Field",
+    "icon": "map-marked-alt",
+    "description": "point-list.plugin.description"
+  },
+  "dependencies": {
+    "react-lasso-select": "^1.1.0"
+  },
+  "author": {
+    "name": "akcyp",
+    "url": "https://github.com/akcyp"
+  },
+  "maintainers": [
+    {
+      "name": "akcyp",
+      "url": "https://github.com/akcyp"
+    }
+  ],
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
