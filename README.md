@@ -37,3 +37,7 @@ After successful installation you need to rebuild the strapi admin panel. Just u
 # npm
 npm run build && npm run develop
 ```
+
+## Contributing / Developing
+
+Feel free to post any PR or issues.
