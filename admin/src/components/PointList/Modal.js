@@ -22,13 +22,16 @@ const pathFromString = (str) => str.split(' ').filter(Boolean).map(s => s.split(
 export function LassoModal ({ isOpen, src, value, onConfirm, onDismiss, onToggle }) {
   const [lassoValue, setLassoValue] = useState([]);
   const lastValue = useRef(value);
-  if (value !== lastValue.current) {
+  const wasOpen = useRef(isOpen);
+  if (value !== lastValue.current || isOpen !== wasOpen.current) {
+    wasOpen.current = isOpen;
     lastValue.current = value;
     setLassoValue(pathFromString(value));
   }
   return (
-    <Modal isOpen={isOpen}>
+    <Modal isOpen={isOpen} onToggle={onToggle}>
       <ModalHeader
+        onClickGoBack={onToggle}
         HeaderComponent={() => <p>Select path by clicking on image</p>}
       />
       <ModalBody style>
