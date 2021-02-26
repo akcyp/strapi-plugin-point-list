@@ -23,11 +23,13 @@ Component by default is not going to appear in the UI. You need to enable it man
     "path": {
 -      "type": "string",
 +      "type": "pointlist",
-+      "columnType": "longtext"
++      "columnType": "text"
     }
   }
 }
 ```
+
+* Consider setting the "columnType" parameter to "longtext" or some other data type supported by your database.
 
 ## Before start
 
