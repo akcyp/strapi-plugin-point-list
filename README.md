@@ -10,7 +10,7 @@ A plugin for [Strapi CMS](https://github.com/strapi/strapi) that provides point 
 
 ```bash
 # npm
-npm install strapi-plugin-colorpicker
+npm install strapi-plugin-point-list
 ```
 
 ## Usage
