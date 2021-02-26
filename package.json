@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-point-list",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Point list field for strapi",
   "strapi": {
     "name": "Point List Field",
