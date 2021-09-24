@@ -21,7 +21,7 @@
     "arena-selecting"
   ],
   "dependencies": {
-    "react-lasso-select": "^1.1.2"
+    "react-lasso-select": "^1.2.0"
   },
   "author": {
     "name": "akcyp",
