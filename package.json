@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-point-list",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "description": "Point list field for Strapi CMS",
   "repository": {
     "type": "git",
