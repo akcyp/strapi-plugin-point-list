@@ -20,22 +20,22 @@ const pathToString = (arr) => arr.map(({x,y}) => `${x},${y}`).join(' ');
 const pathFromString = (str) => str.split(' ').filter(Boolean).map(s => s.split(',').map(Number)).map(([x,y]) => ({x, y}));
 
 export default function PointList ({
-  attribute, // { type: 'pointlist' }
-  contentTypeUID, // api::post.post
-  description, // null
-  disabled, // false
-  error, // null
-  intlLabel, // {id: 'Points', defaultMessage: 'Points'}
-  labelAction, // undefined
-  multiple, // false
-  name, // points
-  onChange, // Function
+  attribute,
+  contentTypeUID,
+  description,
+  disabled,
+  error,
+  intlLabel,
+  labelAction,
+  multiple,
+  name,
+  onChange,
   options,
   placeholder,
   required,
-  type, // 'pointlist'
-  value, // null
-  withDefaultValue, // false
+  type,
+  value,
+  withDefaultValue,
 }) {
   const { components } = useLibrary();
   const { formatMessage } = useIntl();
