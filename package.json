@@ -1,12 +1,7 @@
 {
   "name": "strapi-plugin-point-list",
-  "version": "3.0.0",
-  "description": "Point list field for strapi",
-  "strapi": {
-    "name": "Point List Field",
-    "icon": "map-marked-alt",
-    "description": "point-list.plugin.description"
-  },
+  "version": "4.0.7",
+  "description": "Point list field for Strapi CMS",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/akcyp/strapi-plugin-point-list.git"
@@ -15,13 +10,17 @@
     "url": "https://github.com/akcyp/strapi-plugin-point-list/issues"
   },
   "homepage": "https://github.com/akcyp/strapi-plugin-point-list#readme",
-  "keywords": [
-    "strapi",
-    "strapi-plugin",
-    "arena-selecting"
-  ],
+  "strapi": {
+    "name": "strapi-plugin-point-list",
+    "description": "Point list field for Strapi CMS",
+    "icon": "map-marked-alt",
+    "kind": "plugin"
+  },
   "dependencies": {
     "react-lasso-select": "^1.2.2"
+  },
+  "peerDependencies": {
+    "@strapi/helper-plugin": "^4.0.7"
   },
   "author": {
     "name": "akcyp",
@@ -34,7 +33,7 @@
     }
   ],
   "engines": {
-    "node": ">=10.16.0 <=14.x.x",
+    "node": ">=12.x. <=16.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"

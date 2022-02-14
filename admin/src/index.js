@@ -1,32 +1,62 @@
+import { prefixPluginTranslations } from '@strapi/helper-plugin';
+
 import pluginPkg from '../../package.json';
 import pluginId from './pluginId';
-import Initializer from './containers/Initializer';
-import lifecycles from './lifecycles';
-import trads from './translations';
-import PointList from './components/PointList/index';
 
-export default strapi => {
-  const pluginDescription = pluginPkg.strapi.description || pluginPkg.description;
-  const icon = pluginPkg.strapi.icon;
-  const name = pluginPkg.strapi.name;
+import Initializer from './components/Initializer';
+import PointList from './components/PointList';
 
-  const plugin = {
-    blockerComponent: null,
-    blockerComponentProps: {},
-    description: pluginDescription,
-    icon,
-    id: pluginId,
-    initializer: Initializer,
-    injectedComponents: [],
-    isReady: false,
-    isRequired: pluginPkg.strapi.required || false,
-    layout: null,
-    lifecycles,
-    name,
-    preventComponentRendering: false,
-    trads
-  };
+/*
+  Since strapi doesn't support custom fields in v4, we have to overwrite the current implementation
+*/
+import { intercept } from './utils/intercept';
+import * as helperPlugin from '@strapi/helper-plugin';
+intercept(helperPlugin, 'GenericInput', ({ args: [props], resolve }) => {
+  const type = props.attribute.fieldRenderer || props.type;
+  return resolve({
+    ...props,
+    type,
+  });
+});
 
-  strapi.registerField({ type: 'pointlist', Component: PointList });
-  return strapi.registerPlugin(plugin);
+const name = pluginPkg.strapi.name;
+
+export default {
+  register(app) {
+    app.addFields([{
+      type: 'pointlist',
+      Component: PointList,
+    }]);
+
+    app.registerPlugin({
+      id: pluginId,
+      initializer: Initializer,
+      isReady: false,
+      name,
+    });
+  },
+
+  bootstrap(app) {
+    // const ctb = app.getPlugin('content-type-builder');
+  },
+  async registerTrads({ locales }) {
+    const importedTrads = await Promise.all(
+      locales.map(locale => {
+        return import(`./translations/${locale}.json`)
+          .then(({ default: data }) => {
+            return {
+              data: prefixPluginTranslations(data, pluginId),
+              locale,
+            };
+          })
+          .catch(() => {
+            return {
+              data: {},
+              locale,
+            };
+          });
+      })
+    );
+    return Promise.resolve(importedTrads);
+  },
 };
