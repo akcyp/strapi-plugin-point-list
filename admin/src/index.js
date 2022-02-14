@@ -12,7 +12,7 @@ import PointList from './components/PointList';
 import { intercept } from './utils/intercept';
 import * as helperPlugin from '@strapi/helper-plugin';
 intercept(helperPlugin, 'GenericInput', ({ args: [props], resolve }) => {
-  const type = props.attribute.fieldRenderer || props.type;
+  const type = (props.attribute || {}).fieldRenderer || props.type;
   return resolve({
     ...props,
     type,
@@ -41,7 +41,7 @@ export default {
   },
   async registerTrads({ locales }) {
     const importedTrads = await Promise.all(
-      locales.map(locale => {
+      locales.map((locale) => {
         return import(`./translations/${locale}.json`)
           .then(({ default: data }) => {
             return {
