@@ -27,8 +27,7 @@
     "develop": "tsc -w",
     "build": "tsc",
     "build:admin": "tsc -p ./admin",
-    "lint": "eslint .",
-    "prepublishOnly": "yarn run lint && yarn run build && yarn build:admin"
+    "lint": "eslint ."
   },
   "dependencies": {
     "react-lasso-select": "^1.2.2"
