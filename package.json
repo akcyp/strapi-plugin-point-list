@@ -17,7 +17,7 @@
     "kind": "plugin"
   },
   "scripts": {
-    "before-ci": "install-peers",
+    "prepare": "install-peers",
     "develop": "tsc -w",
     "build": "tsc",
     "build:admin": "tsc -p ./admin",

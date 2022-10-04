@@ -13,7 +13,6 @@ jobs:
         node-version: '14'
     - run: |
         yarn install --frozen-lockfile
-        yarn run before-ci
         yarn run lint
         yarn run build
         yarn run build:admin
