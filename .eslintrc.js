@@ -11,11 +11,11 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['server/**/*.js'],
+      files: ['server/**/*.{ts,js}'],
       ...require('./config/.eslintrc.back.js'),
     },
     {
-      files: ['admin/**/*.js'],
+      files: ['admin/**/*.{ts,js}'],
       ...require('./config/.eslintrc.front.js'),
     },
   ],
