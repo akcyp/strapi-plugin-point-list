@@ -2,6 +2,12 @@
   "name": "strapi-plugin-point-list",
   "version": "4.4.1",
   "description": "Point list field for Strapi CMS",
+  "files": [
+    "strapi-admin.js",
+    "admin",
+    "dist",
+    "strapi-server.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/akcyp/strapi-plugin-point-list.git"

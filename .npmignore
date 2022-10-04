@@ -1,9 +1,0 @@
-.github/
-assets/
-config/
-docs/
-.editorconfig
-.eslintrc.js
-
-server/
-dist-admin/
