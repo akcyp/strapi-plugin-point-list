@@ -17,11 +17,12 @@
     "kind": "plugin"
   },
   "scripts": {
+    "before-ci": "install-peers",
     "develop": "tsc -w",
     "build": "tsc",
     "build:admin": "tsc -p ./admin",
     "lint": "eslint .",
-    "prepublish": "yarn run lint && yarn run build"
+    "prepublish": "yarn run lint && yarn run build && yarn build:admin"
   },
   "dependencies": {
     "react-lasso-select": "^1.2.2"
@@ -37,6 +38,7 @@
     "@typescript-eslint/parser": "^5.39.0",
     "eslint": "^8.24.0",
     "eslint-plugin-react": "^7.31.8",
+    "install-peers-cli": "^2.2.0",
     "typescript": "4.6.3"
   },
   "author": {
