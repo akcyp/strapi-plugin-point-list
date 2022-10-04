@@ -1,6 +1,7 @@
 {
   "point-list.label": "Lista punktów",
   "point-list.description": "Zaznacz obszar na obrazie",
+  "point-list.tutorial": "Zaznaczaj obszar klikając w wybrane punkty na rysunku",
   "point-list.options.advanced.requiredField": "Pole obowiązkowe",
   "point-list.options.advanced.requiredField.description": "Nie będziesz mógł stworzyć pozycji bez uzupełnienia tego pola"
 }

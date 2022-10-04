@@ -5,7 +5,7 @@ declare module '@strapi/helper-plugin' {
     clearAppStorage(): void;
   };
   export function useLibrary(): {
-    components: Record<string, React.Component>;
+    components: Record<string, React.FC>;
   };
   export function prefixFileUrlWithBackendUrl(url: string): string;
 }

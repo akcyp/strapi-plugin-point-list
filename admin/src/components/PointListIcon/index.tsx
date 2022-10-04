@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Icon } from '@strapi/design-system/Icon';
 import { Flex } from '@strapi/design-system/Flex';
-import Puzzle from '@strapi/icons/Puzzle';
+import FieldIcon from '@strapi/icons/Crop';
 
 const IconBox = styled(Flex)`
   /* Hard code color values */
@@ -14,12 +14,12 @@ const IconBox = styled(Flex)`
   }
 `;
 
-const ColorPickerIcon = () => {
+const PointListIcon = () => {
   return (
     <IconBox justifyContent="center" alignItems="center" width={7} height={6} hasRadius aria-hidden>
-      <Icon as={Puzzle} />
+      <Icon as={FieldIcon} />
     </IconBox>
   );
 };
 
-export default ColorPickerIcon;
+export default PointListIcon;

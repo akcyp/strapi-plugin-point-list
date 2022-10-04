@@ -1,8 +1,10 @@
 import React from 'react';
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
 
-import getTrad from './utils/getTrad';
+import pluginPkg from '../../package.json';
 import pluginId from './pluginId';
+
+import getTrad from './utils/getTrad';
 import Icon from './components/PointListIcon';
 
 interface IntlString {
@@ -41,7 +43,7 @@ export default {
   register(app: StrapiApp) {
     app.customFields.register({
       name: 'point-list',
-      pluginId,
+      pluginId: pluginPkg.strapi.name,
       type: 'string',
       icon: Icon,
       intlLabel: {
@@ -74,7 +76,7 @@ export default {
                 },
                 description: {
                   id: getTrad('point-list.options.advanced.requiredField.description'),
-                  defaultMessage: "You won't be able to create an entry if this field is empty",
+                  defaultMessage: 'You won\'t be able to create an entry if this field is empty',
                 },
               },
             ],
@@ -87,20 +89,19 @@ export default {
     const { locales } = app;
 
     const importedTrads = await Promise.all(
-      locales.map(locale => {
-        return import(`./translations/${locale}.json`)
-          .then(({ default: data }) => {
-            return {
-              data: prefixPluginTranslations(data, pluginId),
-              locale,
-            };
-          })
-          .catch(() => {
-            return {
-              data: {},
-              locale,
-            };
-          });
+      locales.map(async locale => {
+        try {
+          const { default: data } = await import(`./translations/${locale}.json`);
+          return {
+            data: prefixPluginTranslations(data, pluginId),
+            locale,
+          };
+        } catch {
+          return {
+            data: {},
+            locale,
+          };
+        }
       })
     );
     return Promise.resolve(importedTrads);
