@@ -22,7 +22,7 @@
     "build": "tsc",
     "build:admin": "tsc -p ./admin",
     "lint": "eslint .",
-    "prepublish": "yarn run lint && yarn run build && yarn build:admin"
+    "prepublishOnly": "yarn run lint && yarn run build && yarn build:admin"
   },
   "dependencies": {
     "react-lasso-select": "^1.2.2"
