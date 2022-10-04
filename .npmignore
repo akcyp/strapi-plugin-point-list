@@ -1,3 +1,9 @@
+.github/
+assets/
+config/
+docs/
 .editorconfig
-preview-field.png
-preview.png
+.eslintrc.js
+
+server/
+dist-admin/

@@ -1,1 +1,7 @@
-{}
+{
+  "point-list.label": "Point List",
+  "point-list.description": "Select shape / area on image",
+  "point-list.tutorial": "Select path by clicking on image",
+  "point-list.options.advanced.requiredField": "Required field",
+  "point-list.options.advanced.requiredField.description": "You won't be able to create an entry if this field is empty"
+}

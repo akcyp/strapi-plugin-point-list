@@ -1,0 +1,15 @@
+{
+  "extends": "@strapi/typescript-utils/tsconfigs/admin",
+  "compilerOptions": {
+    "outDir": "../dist-admin",
+    "rootDir": ".",
+    "types": [
+      "./src/typings/@strapi/design-system",
+      "./src/typings/@strapi/helper-plugin",
+      "./src/typings/@strapi/icons"
+    ]
+  },
+  "include": [
+    "./src",
+  ],
+}
