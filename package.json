@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-point-list",
-  "version": "4.0.8",
+  "version": "4.4.1",
   "description": "Point list field for Strapi CMS",
   "repository": {
     "type": "git",
@@ -16,11 +16,24 @@
     "icon": "map-marked-alt",
     "kind": "plugin"
   },
+  "scripts": {
+    "develop": "tsc -w",
+    "build": "tsc",
+    "lint": "eslint ."
+  },
   "dependencies": {
     "react-lasso-select": "^1.2.2"
   },
   "peerDependencies": {
-    "@strapi/helper-plugin": "^4.0.7"
+    "@strapi/helper-plugin": "^4.4.1",
+    "@strapi/strapi": "^4.4.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint": "^8.24.0",
+    "eslint-plugin-react": "^7.31.8",
+    "typescript": "4.6.3"
   },
   "author": {
     "name": "akcyp",
@@ -33,7 +46,7 @@
     }
   ],
   "engines": {
-    "node": ">=12.x. <=16.x.x",
+    "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"

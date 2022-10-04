@@ -1,3 +1,7 @@
+/**
+ * axios with a custom config.
+ */
+
 import axios from 'axios';
 import { auth } from '@strapi/helper-plugin';
 
@@ -6,7 +10,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(
-  async config => {
+  async (config) => {
     config.headers = {
       Authorization: `Bearer ${auth.getToken()}`,
       Accept: 'application/json',
@@ -15,14 +19,14 @@ instance.interceptors.request.use(
 
     return config;
   },
-  error => {
+  (error) => {
     Promise.reject(error);
   }
 );
 
 instance.interceptors.response.use(
-  response => response,
-  error => {
+  (response) => response,
+  (error) => {
     // whatever you want to do with the error
     if (error.response?.status === 401) {
       auth.clearAppStorage();
