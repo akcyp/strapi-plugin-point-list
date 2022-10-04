@@ -6,7 +6,7 @@ declare module '@strapi/design-system/Flex' {
     height:number;
     hasRadius: boolean;
     'aria-hidden': boolean;
-    children: JSX.Element;
+    children?: JSX.Element | JSX.Element[] | string;
   }>;
 }
 
@@ -19,7 +19,7 @@ declare module '@strapi/design-system/Icon' {
 declare module '@strapi/design-system/Tooltip' {
   export const Tooltip: React.FC<{
     description: string;
-    children: JSX.Element;
+    children?: JSX.Element | JSX.Element[] | string;
   }>;
 }
 
@@ -48,7 +48,7 @@ declare module '@strapi/design-system/Field' {
   export const FieldAction: React.FC<{
     label: string;
     onClick(e: React.MouseEvent): void;
-    children: JSX.Element;
+    children?: JSX.Element | JSX.Element[] | string;
   }>;
 }
 
@@ -56,7 +56,7 @@ declare module '@strapi/design-system/Button' {
   export const Button: React.FC<{
     onClick(e: React.MouseEvent): void;
     variant?: string;
-    children: JSX.Element;
+    children?: JSX.Element | JSX.Element[] | string;
   }>;
 }
 
@@ -66,7 +66,7 @@ declare module '@strapi/design-system/Typography' {
     textColor: string;
     as: string;
     id: string;
-    children: JSX.Element;
+    children?: JSX.Element | JSX.Element[] | string;
   }>;
 }
 
@@ -74,13 +74,13 @@ declare module '@strapi/design-system/ModalLayout' {
   export const ModalLayout: React.FC<{
     labelledBy: string;
     onClose(): void;
-    children: JSX.Element[];
+    children?: JSX.Element | JSX.Element[] | string;
   }>;
   export const ModalBody: React.FC<{
-    children: JSX.Element;
+    children?: JSX.Element | JSX.Element[] | string;
   }>;
   export const ModalHeader: React.FC<{
-    children: JSX.Element;
+    children?: JSX.Element | JSX.Element[] | string;
   }>;
   export const ModalFooter: React.FC<{
     startActions: JSX.Element;
