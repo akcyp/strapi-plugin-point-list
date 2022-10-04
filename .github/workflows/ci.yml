@@ -12,7 +12,7 @@ jobs:
       with:
         node-version: '14'
     - run: |
-        npm ci
-        npm run lint
+        yarn install --frozen-lockfile
+        yarn run lint
       env:
         CI: true

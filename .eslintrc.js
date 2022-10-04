@@ -19,4 +19,5 @@ module.exports = {
       ...require('./config/.eslintrc.front.js'),
     },
   ],
+  ignorePatterns: ['dist']
 };

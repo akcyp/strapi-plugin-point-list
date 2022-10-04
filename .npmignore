@@ -2,5 +2,6 @@
 assets/
 config/
 docs/
+server/
 .editorconfig
 .eslintrc.js
