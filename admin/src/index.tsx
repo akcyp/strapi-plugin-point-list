@@ -1,11 +1,9 @@
 import React from 'react';
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
 
-import pluginPkg from '../../package.json';
-import pluginId from './pluginId';
-
 import getTrad from './utils/getTrad';
 import Icon from './components/PointListIcon';
+import pluginId from './pluginId';
 
 interface IntlString {
   id: string;
@@ -43,7 +41,7 @@ export default {
   register(app: StrapiApp) {
     app.customFields.register({
       name: 'point-list',
-      pluginId: pluginPkg.strapi.name,
+      pluginId,
       type: 'string',
       icon: Icon,
       intlLabel: {

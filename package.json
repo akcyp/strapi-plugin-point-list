@@ -19,6 +19,7 @@
   "scripts": {
     "develop": "tsc -w",
     "build": "tsc",
+    "build:admin": "tsc -p ./admin",
     "lint": "eslint .",
     "prepublish": "yarn run lint && yarn run build"
   },
