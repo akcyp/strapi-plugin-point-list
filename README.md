@@ -15,13 +15,13 @@ A plugin for [Strapi CMS](https://github.com/strapi/strapi) that provides point 
 ## Strapi@latest installation
 
 ```bash
-npm install strapi-plugin-point-list@>=4.4.4
+yarn add strapi-plugin-point-list@>=4.4.4
 ```
 
 After successful installation you need to rebuild the strapi admin panel.
 
 ```bash
-npm run build && npm run develop
+yarn run build && yarn run develop
 ```
 
 ## Contributing / Developing
