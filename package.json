@@ -35,11 +35,11 @@
     "@strapi/helper-plugin": "^4.4.1",
     "@strapi/strapi": "^4.4.1",
     "react": ">=17.0.2",
-    "react-dom": ">=17.0.2"
+    "react-dom": ">=17.0.2",
+    "react-intl": "^3.0.0"
   },
   "devDependencies": {
     "@strapi/typescript-utils": "^4.4.1",
-    "@types/react-intl": "^3.0.0",
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
