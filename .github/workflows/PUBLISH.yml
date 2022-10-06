@@ -1,6 +1,9 @@
-name: Code quality check
+name: NPM Publish
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -38,3 +41,12 @@ jobs:
       run: pnpm run build:admin
       env:
         CI: true
+    - name: Publish on npm
+      id: publish
+      uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+    - name: Print npm update result
+      if: steps.publish.outputs.type != 'none'
+      run: |
+        echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
