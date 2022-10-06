@@ -31,7 +31,7 @@ jobs:
     - name: Check server build
       run: |
         pnpm run build
-        ls -l dist
+        ls -l dist && ls -l dist/server/
       env:
         CI: true
     - name: Check admin build
