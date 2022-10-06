@@ -25,15 +25,17 @@ jobs:
       env:
         CI: true
     - name: Check code style
-      run: yarn run lint
+      run: pnpm run lint
       env:
         CI: true
     - name: Check server build
-      run: yarn run build
+      run: |
+        pnpm run build
+        ls -l dist
       env:
         CI: true
-    - name: Check server build
-      run: yarn run build:admin
+    - name: Check admin build
+      run: pnpm run build:admin
       env:
         CI: true
     - name: Publish on npm
