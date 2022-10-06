@@ -1,0 +1,47 @@
+name: Code quality check
+
+on: [pull_request, push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: pnpm/action-setup@v2.2.2
+      with:
+        version: 7
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+    - name: Install dependencies
+      run: |
+        pnpm install
+        node ./cli/get-peers.js | xargs -n1 pnpm add -D
+      env:
+        CI: true
+    - name: Check code style
+      run: yarn run lint
+      env:
+        CI: true
+    - name: Check server build
+      run: yarn run build
+      env:
+        CI: true
+    - name: Check server build
+      run: yarn run build:admin
+      env:
+        CI: true
+    - name: Publish on npm
+      id: publish
+      if: github.event_name == 'push'
+      uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+    - if: github.event_name == 'push' && steps.publish.outputs.type != 'none'
+      run: |
+        echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
