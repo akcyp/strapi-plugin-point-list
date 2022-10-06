@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-point-list",
-  "version": "4.4.3",
+  "version": "4.4.4",
   "description": "Point list field for Strapi CMS",
   "files": [
     "strapi-admin.js",
